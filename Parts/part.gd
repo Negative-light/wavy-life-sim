@@ -36,6 +36,7 @@ func validConnections() -> Array:
 			return [connect_north, connect_east, connect_south, connect_west]
 
 func initEffect():
+	# Return "KEY":"VALUE" where "KEY" is a know Atribute of a creature
 	pass
 	
 func activate(_delta):
