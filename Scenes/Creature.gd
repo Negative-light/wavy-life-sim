@@ -1,5 +1,7 @@
 extends Node2D
 
+# Get all attributes
+const ATTRIBUTES = preload("res://Parts/Attributes.gd");
 
 # Declare member variables here. Examples:
 # var a = 2
