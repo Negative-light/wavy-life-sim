@@ -1,1 +1,7 @@
-# TODO: ADD ATTRIBUTES ENUM
+# Creature Attributes
+enum ATTRIBUTES {
+	HEALTH,
+	SPEED,
+	ENERGY,
+	HUNGER
+}
