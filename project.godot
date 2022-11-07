@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Attribute",
+"language": "GDScript",
+"path": "res://Parts/Attribute.gd"
+}, {
+"base": "Reference",
+"class": "AttributeControler",
+"language": "GDScript",
+"path": "res://Parts/AttributeControl.gd"
+}, {
 "base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -18,10 +28,24 @@ _global_script_classes=[ {
 "class": "Part",
 "language": "GDScript",
 "path": "res://Parts/part.gd"
+}, {
+"base": "Reference",
+"class": "Rule",
+"language": "GDScript",
+"path": "res://Parts/Rule.gd"
+}, {
+"base": "Reference",
+"class": "RuleSet",
+"language": "GDScript",
+"path": "res://Parts/RuleSet.gd"
 } ]
 _global_script_class_icons={
+"Attribute": "",
+"AttributeControler": "",
 "GitAPI": "",
-"Part": ""
+"Part": "",
+"Rule": "",
+"RuleSet": ""
 }
 
 [application]
