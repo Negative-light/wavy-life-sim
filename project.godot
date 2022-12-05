@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Attribute",
+"language": "GDScript",
+"path": "res://Parts/Attributes.gd"
+}, {
 "base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://Parts/RuleSet.gd"
 } ]
 _global_script_class_icons={
+"Attribute": "",
 "GitAPI": "",
 "Part": "",
 "Rule": "",
