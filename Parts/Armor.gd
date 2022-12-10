@@ -11,5 +11,5 @@ func _init():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#creaturespeed += healthIncrease
+	#creaturehealth += healthIncrease
 	pass # Replace with function body.
