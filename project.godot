@@ -22,12 +22,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Attribute",
 "language": "GDScript",
-"path": "res://Parts/Attribute.gd"
-}, {
-"base": "Reference",
-"class": "AttributeControler",
-"language": "GDScript",
-"path": "res://Parts/AttributeControl.gd"
+"path": "res://Parts/Attributes.gd"
 }, {
 "base": "EditorVCSInterface",
 "class": "GitAPI",
@@ -68,7 +63,6 @@ _global_script_class_icons={
 "Arm": "",
 "Armor": "",
 "Attribute": "",
-"AttributeControler": "",
 "GitAPI": "",
 "Leg": "",
 "Part": "",
