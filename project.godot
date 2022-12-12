@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Part",
+"class": "Arm",
+"language": "GDScript",
+"path": "res://Parts/Arm.gd"
+}, {
+"base": "Part",
+"class": "Armor",
+"language": "GDScript",
+"path": "res://Parts/Armor.gd"
+}, {
 "base": "Reference",
 "class": "Attribute",
 "language": "GDScript",
@@ -24,6 +34,11 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
+"base": "Part",
+"class": "Leg",
+"language": "GDScript",
+"path": "res://Parts/Leg.gd"
+}, {
 "base": "Node",
 "class": "Part",
 "language": "GDScript",
@@ -38,19 +53,35 @@ _global_script_classes=[ {
 "class": "RuleSet",
 "language": "GDScript",
 "path": "res://Parts/RuleSet.gd"
+}, {
+"base": "Part",
+"class": "Spike",
+"language": "GDScript",
+"path": "res://Parts/Spike.gd"
+}, {
+"base": "Part",
+"class": "Void",
+"language": "GDScript",
+"path": "res://Parts/Void.gd"
 } ]
 _global_script_class_icons={
+"Arm": "",
+"Armor": "",
 "Attribute": "",
 "AttributeControler": "",
 "GitAPI": "",
+"Leg": "",
 "Part": "",
 "Rule": "",
-"RuleSet": ""
+"RuleSet": "",
+"Spike": "",
+"Void": ""
 }
 
 [application]
 
 config/name="Code"
+run/main_scene="res://Parts/PART-TESTING.tscn"
 config/icon="res://_Assets/icon.png"
 
 [editor]
