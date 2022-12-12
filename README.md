@@ -20,9 +20,11 @@ This is a novel use of the Wave Function Collapse Algorithm which is typically u
 
 ## Inital Design
 
-### Creature Lifetime
+### Creature Phases
 
 During the simulation the creature will go through a few stages. If we treated a set of actions as a day this is how craetures would act.
+
+When a creature "wakes up" it will check if it is alive, then it will attempt to move. This will result in it both consuming food particles it runs into and concsuming food based on the distance travled and the nubmer of parts the creature consists of. After it has moved, the creature will then activate any effects of its parts, these could include healing the creature or attacking other creatures. If a creature has been attaked it will then activate other defensive measure, these could include any activity that has occured during the Activate Parts stage of the creatures day. After this it will sleep and start over again.
 
 ```mermaid
 graph LR
@@ -37,7 +39,7 @@ graph LR
 
 ### Inital Classes
 
-The following classes would be needed based on our inital analysis. Please see the [State of Completion Section](#state-of-completion).
+The following classes would be needed based on our inital analysis. Please see the [State of Completion Section](#state-of-completion) and [project](https://github.com/users/Negative-light/projects/1) for more information.
 
 ```mermaid
 classDiagram
@@ -148,9 +150,9 @@ classDiagram
 
 ### Wave Function Collapse Alogrithm
 
-Wave Function Collapse is similar to filling a empty Sodoku board. Start by picking a cell and filling it with a random value. This changes a Block, Row and Column to have one less possible values. In other terms the cells in the effect Block, Row and Column have lower **entory**. In Wavefunciton collapse you pick on of these lower entropy cells and set a new value. This cycle repeats until the last cell on the board is filled.
+Wave Function Collapse is similar to filling a empty Sodoku board. Start by picking a cell and filling it with a random value. This changes a Block, Row and Column to have one less possible values. In other terms the cells in the effect Block, Row and Column have lower **entropy**. In Wave Function Collapse you pick on of these lower entropy cells and set a new value. This cycle repeats until the last cell on the board is filled.
 
-Commonly Wavefunction collpase will use a image as a baseline to determin what pieces can connect. Then rules are dynamically generated based on a window size (typeically 3x3) of a a pixelart image. This dynamic rule genration is useful for us, but it doesn't neccesarily work this way since our parts do not rely on a visual model.
+Commonly Wave Function collpase will use a image as a baseline to determin what pieces can connect. Then rules are dynamically generated based on a window size (typeically 3x3) of a a pixelart image. This dynamic rule genration is useful for us, but it doesn't neccesarily work this way since our parts do not rely on a visual model.
 
 Because the parts of the creatures should be rotatable we need to be able to generate a dynamic set of rules based on
 
@@ -160,6 +162,51 @@ Because the parts of the creatures should be rotatable we need to be able to gen
 This will give us a allowed and denied list of locations.
 
 For the sake of simplification the design decision was made to have all parts exist on a grid and for the time being the parts will not have any movment outside of the creatures movement.
+
+So the Wave Funciton Collapse can be generated in two stages. Creating a matrix of Possible connections bewtween a set of parts. Because we want the nubmer of parts to be rather dynamic it would be best that this is 100% algorithmic. Because parts can be rotated this creates more complex sets of rules.
+
+To understand how the Rule Set generation works we must first generate a Rule. Consider part A which can connect on all four faces, and part B which can only connect on its North face when the part is facing North. This ruleset will be for A connecting to B.
+
+The matrix below where the rows represent the faces of part A and the columns the faces of part B.
+
+$$
+\begin{Bmatrix}
+ & NORTH & EAST & SOUTH & WEST\\
+NORTH & 1 & 0 & 0 & 0\\
+EAST  & 1 & 0 & 0 & 0\\
+SOUTH & 1 & 0 & 0 & 0\\
+WEST  & 1 & 0 & 0 & 0\\
+
+\end{Bmatrix}
+$$
+
+Now lets use this for part B connecting to part A. Lets start by assuming that Part B is facing North.
+
+$$
+\begin{Bmatrix}
+ & NORTH & EAST & SOUTH & WEST\\
+NORTH & 1 & 1 & 1 & 1\\
+EAST  & 0 & 0 & 0 & 0\\
+SOUTH & 0 & 0 & 0 & 0\\
+WEST  & 0 & 0 & 0 & 0\\
+
+\end{Bmatrix}
+$$
+
+Now lets rotate Part B to be facing EAST meaning that this instance of Part B can only connect on its east face.
+
+$$
+\begin{Bmatrix}
+ & NORTH & EAST & SOUTH & WEST\\
+NORTH  & 0 & 0 & 0 & 0\\
+EAST & 1 & 1 & 1 & 1\\
+SOUTH & 0 & 0 & 0 & 0\\
+WEST  & 0 & 0 & 0 & 0\\
+
+\end{Bmatrix}
+$$
+
+You may notice that Part B's matrix only shifted based on the direction of the North Face. This means that we can apply a shift value to the search indicies of the matrix ensuring.
 
 ## State of Completion
 
