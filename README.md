@@ -21,40 +21,22 @@ This is a novel use of the Wave Function Collapse Algorithm which is typically u
 
 ### Creature Lifetime
 
+During the simulation the creature will go through a few stages. If we treated a set of actions as a day this is how craetures would act.
+
 ```mermaid
-stateDiagram-v2
-    [*]-->CHECK_STATUS
+graph LR
+    START([Wake-up])-->
+    A[Check Life Stats]-->B[Move]-->C[Activate Parts]-->D{Under Attack}
+    D-->|YES|E[Activate Defenses]-->END
+    D-->|NO|END
+    END([Sleep])
 
-    MOVE-->ACTIVATE_PART
-    ACTIVATE_PART-->PICK_NEXT_PART
-
-
-
-    CHECK_STATUS-->MOVE
-
-
-    state CHECK_STATUS {
-        [*]-->IS_ALIVE
-        IS_ALIVE-->UNDER_ATTACK:YES
-        UNDER_ATTACK-->ACTIVATE_DEFENSES: YES
-        UNDER_ATTACK-->[*]:NO
-        ACTIVATE_DEFENSES-->[*]
-
-        state ACTIVATE_DEFENSES {
-            [*]-->ACTIVATE_ALL_PARTS
-            ACTIVATE_ALL_PARTS-->CHECK_ENERGY
-            CHECK_ENERGY-->CHECK_HEALTH
-            CHECK_HEALTH-->IS_STILL_ALIVE
-            IS_STILL_ALIVE-->[*]: YES
-        }
-    }
-    IS_STILL_ALIVE-->[*]:NO
-    IS_ALIVE-->[*]:NO
-    PICK_NEXT_PART-->UPDATE_STATS
-    UPDATE_STATS-->CHECK_STATUS
+    END-->START
 ```
 
 ### Inital Classes
+
+The following classes would be needed based on our inital analysis. Please see the [State of Completion Section](#state-of-completion).
 
 ```mermaid
 classDiagram
@@ -165,26 +147,6 @@ classDiagram
 
 ### Wave Function Collapse Alogrithm
 
-```mermaid
-graph TD
-    %%RULE GENERATION%%
-    START-->A
-    A(Grab Next Part)-->B(Get Next Face)-->C{Can Place}
-    C--->|YES|D(Grab Next Part)
-    subgraph CHECK Connection
-        D-->E(Get Opposite Face)-->F{Can Place}
-        F-->|YES|G(Create Rule)-->H{Last Part}
-        F-->|NO|H
-        H-->|NO|D
-    end
-
-    H-->|YES|I{Last Face}
-    I-->|NO|B
-    I-->|YES|J{Last Part}
-    J-->|NO|A
-    J-->|YES|K[[Create Creatures]]-->END
-```
-
 ## State of Completion
 
 - [x] Creature Parts
@@ -192,3 +154,7 @@ graph TD
 - [ ] Wave Function Collapse Algorithm
 - [ ] Creature Gentic Algorithm
 - [ ] Creature Brain
+
+### Project Needs
+
+Multithreading of part activation becuase there will be upwards of 100 parts for a creature. Since all of these will have a
