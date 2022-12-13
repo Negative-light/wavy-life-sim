@@ -181,7 +181,10 @@ WEST  & 1 & 0 & 0 & 0\\
 ```
 
 Now lets use this for part B connecting to part A. Lets start by assuming that Part B is facing North.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 146b22851ca2e5bc06ddd1bc45c9302e01bfd99f
 ```math
 \begin{Bmatrix}
  & NORTH & EAST & SOUTH & WEST\\
