@@ -169,7 +169,7 @@ To understand how the Rule Set generation works we must first generate a Rule. C
 
 The matrix below where the rows represent the faces of part A and the columns the faces of part B.
 
-$$
+```math
 \begin{Bmatrix}
  & NORTH & EAST & SOUTH & WEST\\
 NORTH & 1 & 0 & 0 & 0\\
@@ -178,11 +178,11 @@ SOUTH & 1 & 0 & 0 & 0\\
 WEST  & 1 & 0 & 0 & 0\\
 
 \end{Bmatrix}
-$$
+```
 
 Now lets use this for part B connecting to part A. Lets start by assuming that Part B is facing North.
 
-$$
+```math
 \begin{Bmatrix}
  & NORTH & EAST & SOUTH & WEST\\
 NORTH & 1 & 1 & 1 & 1\\
@@ -191,11 +191,11 @@ SOUTH & 0 & 0 & 0 & 0\\
 WEST  & 0 & 0 & 0 & 0\\
 
 \end{Bmatrix}
-$$
+```
 
 Now lets rotate Part B to be facing EAST meaning that this instance of Part B can only connect on its east face.
 
-$$
+```math
 \begin{Bmatrix}
  & NORTH & EAST & SOUTH & WEST\\
 NORTH  & 0 & 0 & 0 & 0\\
@@ -204,9 +204,25 @@ SOUTH & 0 & 0 & 0 & 0\\
 WEST  & 0 & 0 & 0 & 0\\
 
 \end{Bmatrix}
-$$
+```
 
-You may notice that Part B's matrix only shifted based on the direction of the North Face. This means that we can apply a shift value to the search indicies of the matrix ensuring.
+You may notice that Part B's matrix only shifted based on the direction of the North Face. This means that we can apply a shift value to the search indicies of the matrix reducing the total number of rules needed to be generated.
+
+### Entropy Calculation
+
+Now that we understand how to create a matrix of possible connections we must now calcualte the entorpy. To do this we must also apply a probabity to each part connection. This means that we need to assign each connection a weight. Once this is assigned we can calcualate the entorpy of each possible location by using the entorpy calculation,
+
+```math
+\sum_{i=0}^n p_i*log_2(1/p_i)
+```
+
+Where $n is the number of possible occureces and $p_i is the probabilty of a unquie case. This results in a unique value for the entoryp in bits of inormation. For more information on this calculaiton and the concept of entropy please refer to [this article](https://tdhopper.com/blog/entropy-of-a-discrete-probability-distribution).
+
+Based on this calcuation for each none 0 value for entropy we can pick the lowest and using the weighted probabilty select the next part.
+
+### Workflow
+
+This gives us a general workflow for doing the Wave Function Collapse Algorithm.
 
 ## State of Completion
 
