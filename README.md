@@ -181,10 +181,7 @@ WEST  & 1 & 0 & 0 & 0\\
 ```
 
 Now lets use this for part B connecting to part A. Lets start by assuming that Part B is facing North.
-<<<<<<< HEAD
 
-=======
->>>>>>> 146b22851ca2e5bc06ddd1bc45c9302e01bfd99f
 ```math
 \begin{Bmatrix}
  & NORTH & EAST & SOUTH & WEST\\
@@ -231,8 +228,7 @@ This gives us a general workflow for doing the Wave Function Collapse Algorithm.
 graph LR
     A[Select Location with Lowest Entropy]
     ANOTE[["IF there are multiple locations\n with equal entropy\nselect random location"]]
-    A---ANOTE
-    ANOTE~~~B
+    A-.-ANOTE
     A-->B[Select Random Part]-->
     C[Calculate Entropy for each Posible Location]-->
     D{All entropies = 0}-->|NO|A
