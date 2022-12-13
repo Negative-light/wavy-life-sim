@@ -224,6 +224,18 @@ Based on this calcuation for each none 0 value for entropy we can pick the lowes
 
 This gives us a general workflow for doing the Wave Function Collapse Algorithm.
 
+```mermaid
+graph LR
+    A[Select Location with Lowest Entropy]
+    ANOTE[["IF there are multiple locations\n with equal entropy\nselect random location"]]
+    A---ANOTE
+    ANOTE~~~B
+    A-->B[Select Random Part]-->
+    C[Calculate Entropy for each Posible Location]-->
+    D{All entropies = 0}-->|NO|A
+    D-->|YES|EXIT
+```
+
 ## State of Completion
 
 - [x] Creature Parts
