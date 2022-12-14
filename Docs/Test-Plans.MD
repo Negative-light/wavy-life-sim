@@ -1,5 +1,6 @@
 # Test Plans
 
+This document is the high level test paln for the overall project. This includes integration testing of the Creature, Parts and GUI of the system.
 
 ## Creature
 - Spawn a new creature
