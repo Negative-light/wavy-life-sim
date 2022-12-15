@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Parts/Leg/Leg.gd" type="Script" id=1]
+[ext_resource path="res://Parts/Base/Part.tscn" type="PackedScene" id=2]
+
+[node name="Leg" instance=ExtResource( 2 )]
+mass = 0.102041
+script = ExtResource( 1 )
+speedIncrease = 5
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0, 0.835294, 1, 1 )

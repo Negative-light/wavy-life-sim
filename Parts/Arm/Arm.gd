@@ -1,11 +1,11 @@
+class_name Arm
 extends Part
-class_name Void
 
 func _init():
-	connect_north = true
-	connect_east = true
-	connect_south = true
-	connect_west = true
+	self.connect_north = true
+	self.connect_east = false
+	self.connect_south = true
+	self.connect_west = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

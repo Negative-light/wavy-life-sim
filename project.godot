@@ -12,17 +12,22 @@ _global_script_classes=[ {
 "base": "Part",
 "class": "Arm",
 "language": "GDScript",
-"path": "res://Parts/Arm.gd"
+"path": "res://Parts/Arm/Arm.gd"
 }, {
 "base": "Part",
 "class": "Armor",
 "language": "GDScript",
-"path": "res://Parts/Armor.gd"
+"path": "res://Parts/Armor/Armor.gd"
 }, {
 "base": "Reference",
 "class": "Attribute",
 "language": "GDScript",
 "path": "res://Parts/Attributes.gd"
+}, {
+"base": "Part",
+"class": "Core",
+"language": "GDScript",
+"path": "res://Parts/Core/Core.gd"
 }, {
 "base": "EditorVCSInterface",
 "class": "GitAPI",
@@ -32,37 +37,38 @@ _global_script_classes=[ {
 "base": "Part",
 "class": "Leg",
 "language": "GDScript",
-"path": "res://Parts/Leg.gd"
+"path": "res://Parts/Leg/Leg.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Part",
 "language": "GDScript",
-"path": "res://Parts/part.gd"
+"path": "res://Parts/Base/Part.gd"
 }, {
 "base": "Reference",
 "class": "Rule",
 "language": "GDScript",
-"path": "res://Parts/Rule.gd"
+"path": "res://Rules/Rule.gd"
 }, {
 "base": "Reference",
 "class": "RuleSet",
 "language": "GDScript",
-"path": "res://Parts/RuleSet.gd"
+"path": "res://Rules/RuleSet.gd"
 }, {
 "base": "Part",
 "class": "Spike",
 "language": "GDScript",
-"path": "res://Parts/Spike.gd"
+"path": "res://Parts/Spike/Spike.gd"
 }, {
 "base": "Part",
 "class": "Void",
 "language": "GDScript",
-"path": "res://Parts/Void.gd"
+"path": "res://Parts/Void/Void.gd"
 } ]
 _global_script_class_icons={
 "Arm": "",
 "Armor": "",
 "Attribute": "",
+"Core": "",
 "GitAPI": "",
 "Leg": "",
 "Part": "",
@@ -75,17 +81,49 @@ _global_script_class_icons={
 [application]
 
 config/name="Code"
-run/main_scene="res://Parts/PART-TESTING.tscn"
+run/main_scene="res://Parts/Part-Testing.tscn"
 config/icon="res://_Assets/icon.png"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [editor]
 
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
 
+[global]
+
+window=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 

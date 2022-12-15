@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Parts/Base/Part.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Parts/Core/Core.gd" type="Script" id=2]
+
+[node name="Core" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.996078, 1, 0.54902, 1 )
+self_modulate = Color( 0.992157, 1, 0, 1 )

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Parts/Void/Void.gd" type="Script" id=1]
+[ext_resource path="res://Parts/Base/Part.tscn" type="PackedScene" id=2]
+
+[node name="Void" instance=ExtResource( 2 )]
+mass = 0.102041
+script = ExtResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+self_modulate = Color( 1, 1, 1, 0 )

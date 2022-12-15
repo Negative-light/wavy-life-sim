@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Parts/Sample Part.gd" type="Script" id=1]
-[ext_resource path="res://Parts/PART-TESTING.gd" type="Script" id=2]
-[ext_resource path="res://Parts/part.gd" type="Script" id=3]
+[ext_resource path="res://Parts/Arm/Arm.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Parts/Spike/Spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Parts/Part-Testing.gd" type="Script" id=3]
+[ext_resource path="res://Parts/Core/Core.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Parts/Void/Void.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Parts/Armor/Armor.tscn" type="PackedScene" id=6]
 
-[node name="Node" type="Node"]
-script = ExtResource( 2 )
-
-[node name="Sample Part" type="Node" parent="."]
-script = ExtResource( 1 )
-connect_north = false
-
-[node name="Part_1" type="Node" parent="."]
+[node name="Part-Testing" type="Node2D"]
+position = Vector2( 100, 100 )
 script = ExtResource( 3 )
 
-[connection signal="attacked" from="Sample Part" to="Sample Part" method="_on_Sample_Part_attacked"]
+[node name="Arm2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -12, 0 )
+
+[node name="Core" parent="." instance=ExtResource( 4 )]
+position = Vector2( -12, 60 )
+
+[node name="Spike" parent="Core" instance=ExtResource( 2 )]
+position = Vector2( 64, -60 )
+
+[node name="Void" parent="Core/Spike" instance=ExtResource( 5 )]
+position = Vector2( 0, 60 )
+
+[node name="Armor" parent="Core/Spike" instance=ExtResource( 6 )]
+position = Vector2( 0, 124 )
+
+[node name="Armor2" parent="Core/Spike" instance=ExtResource( 6 )]
+position = Vector2( 64, 60 )
