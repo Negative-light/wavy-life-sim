@@ -235,6 +235,12 @@ graph LR
     D-->|YES|EXIT
 ```
 
+## Use Cases
+
+Below are the usecases for the USER and for Creatures. WE shoose to treat the Creature as a Actor due to the complex nature of how the simulation will work in the end. Ultimatly the Creature will "Think" on its own hopefully.
+
+![Use Case Diagram](Docs/_Assets/WLS-usecases-Page-1.drawio.svg)
+
 ## State of Completion
 
 - [x] Creature Parts
